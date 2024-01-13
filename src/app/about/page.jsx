@@ -88,15 +88,15 @@ const AboutPage = async () => {
               />
             </div>
           )}
-          <div className="flex-1 mt-12 md:mt-0 flex flex-col justify-start gap-y-8 pr-12">
+          <div className="flex-1 md:mt-0 flex flex-col justify-start">
             <div
-              className="text-fore-primary mb-8 space-y-4"
+              className="text-fore-primary"
               dangerouslySetInnerHTML={{
                 __html: sanitize(pageData?.content),
               }}
             />
             <Socials
-              resume={pageData?.metadata.socials.metadata.resume.url}
+              resume={pageData?.metadata.socials.metadata.resume?.url}
               email={pageData?.metadata.socials.metadata.email}
               github={pageData?.metadata.socials.metadata.github}
               linkedin={pageData?.metadata.socials.metadata.linkedin}

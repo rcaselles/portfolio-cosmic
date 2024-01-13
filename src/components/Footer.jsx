@@ -1,27 +1,15 @@
-import { CosmicLogo } from '@/configs/icons'
-import MenuItems from './MenuItems'
+import { getSiteSettings } from "@/lib/cosmic"
+
+const siteSettings = await getSiteSettings()
+
 
 const Footer = () => {
   return (
-    <footer className="flex flex-col items-center md:items-stretch max-w-screen-lg mx-auto gap-y-6 py-12 px-6 md:px-12 lg:px-20">
-      <div className="flex flex-col items-center md:flex-row md:justify-between gap-y-6 md:gap-y-0">
-        <MenuItems />
-      </div>
+    <footer className="flex flex-col items-center md:items-stretch mx-auto gap-y-6 py-12 px-6 md:px-12 lg:px-20">
+
       <div className="flex flex-col-reverse md:flex-row items-center md:justify-between gap-y-6 md:gap-y-0">
         <span className="text-sm">
-          &copy; {new Date().getFullYear()} Developer Portfolio All Rights
-          Reserved.
-        </span>
-        <span className="flex items-center text-sm">
-          Powered by
-          <a
-            href="https://www.cosmicjs.com/"
-            target="_blank"
-            rel="noreferrer"
-            className="ml-2"
-          >
-            <CosmicLogo />
-          </a>
+          &copy; {new Date().getFullYear()} {siteSettings?.metadata?.copyright ?? ""}
         </span>
       </div>
     </footer>

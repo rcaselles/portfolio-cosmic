@@ -9,10 +9,5 @@ export const devIcons = [
   { iconName: 'devicon-tailwindcss-plain', name: 'Tailwind CSS' },
   { iconName: 'devicon-npm-original-wordmark', name: 'NPM' },
   { iconName: 'devicon-wordpress-plain', name: 'WordPress' },
-  { iconName: 'devicon-webpack-plain', name: 'Webpack' },
-  { iconName: 'devicon-babel-original', name: 'Babel' },
   { iconName: 'devicon-git-plain', name: 'Git' },
-  { iconName: 'devicon-graphql-plain', name: 'GraphQL' },
-  { iconName: 'devicon-firebase-plain', name: 'Firebase' },
-  { iconName: 'devicon-figma-plain', name: 'Figma' },
 ]

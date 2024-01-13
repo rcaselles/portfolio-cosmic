@@ -41,7 +41,16 @@
 /* End Theme Classes */
 
 /* Custom Classes */
-
+.active-nav{
+  content: "";
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: linear-gradient(
+    200deg,
+    var(--color-accent),
+    var(--color-second-accent)
+  );
+}
 .nav--item {
   position: relative;
 }

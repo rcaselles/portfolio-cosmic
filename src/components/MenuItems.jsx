@@ -12,8 +12,8 @@ export const routes = [
     label: 'Posts',
   },
   {
-    path: '/works',
-    label: 'Works',
+    path: '/projects',
+    label: 'Projects',
   },
   {
     path: '/about',
@@ -35,8 +35,8 @@ const MenuItems = () => {
             href={route.path}
             className={
               route.path === currentRoute
-                ? 'text-fore-primary transition-colors font-bold tracking-wide'
-                : 'text-fore-subtle transition-colors tracking-wide nav--item'
+                ? 'text-fore-primary text-lg transition-colors active-nav tracking-wide'
+                : 'text-fore-subtle text-lg transition-colors tracking-wide nav--item'
             }
             onClick={removeFocus}
           >

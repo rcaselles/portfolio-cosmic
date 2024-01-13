@@ -69,14 +69,15 @@ const WorksPage = async () => {
 
   return (
     <>
-      <h1 className="text-2xl md:text-3xl text-fore-primary font-bold">
-        Works
+      <h1 className="text-2xl md:text-3xl text-fore-primary font-bold mb-12">
+        Projects
       </h1>
-      <FilteredPosts
+      {!allPosts.length && <span>There are no projects</span> || <FilteredPosts
         posts={allPosts}
         categories={allWorkCategories}
         postType={'works'}
-      />
+      />}
+
     </>
   )
 }

@@ -73,14 +73,13 @@ export async function generateMetadata() {
 
 const HomePage = async () => {
   const data = await getData()
-  const allPosts = data.allPosts
-  const allWorks = data.allWorks
+  const allPosts = data?.allPosts ?? []
+  const allWorks = data?.allWorks ?? []
   const pageData = data.pageData
 
   return (
     <>
       <IntroSection
-        avatar={pageData?.metadata.avatar?.imgix_url}
         heading={pageData?.metadata.heading}
         subHeading={pageData?.metadata.sub_heading}
         socials={pageData?.metadata.socials}
@@ -88,12 +87,12 @@ const HomePage = async () => {
       <AboutMeSection bodyText={pageData?.metadata.about} />
       <ToolboxSection />
       <WorksSection posts={allWorks} />
-      <PostsSection posts={allPosts} />
+      <PostsSection posts={allPosts} />{/* 
       <ContactSection
         heading={pageData?.metadata.contact_heading}
         bodyText={pageData?.metadata.contact_text}
         email={pageData?.metadata.socials.metadata.email}
-      />
+      /> */}
     </>
   )
 }

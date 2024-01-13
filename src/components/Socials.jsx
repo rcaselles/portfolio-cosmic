@@ -2,7 +2,8 @@ import { EmailIcon, GithubIcon, LinkedinIcon, PaperIcon } from '@/configs/icons'
 
 const Socials = ({ resume, email, github, linkedin }) => {
   return (
-    <div className="flex items-center">
+    <div className="flex items-center">{
+      resume && 
       <a
         href={resume}
         target="_blank"
@@ -14,6 +15,7 @@ const Socials = ({ resume, email, github, linkedin }) => {
         </span>
         Resume
       </a>
+    }
       <span className="flex gap-x-5 ml-2">
         <a
           href={`mailto:${email}`}

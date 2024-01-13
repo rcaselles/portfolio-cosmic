@@ -4,12 +4,11 @@ const Logo = () => {
   return (
     (<Link
       href="/"
-      aria-label="Website logo, go back to homepage."
+      aria-label="go back to homepage."
       className="flex items-center border-white group focus-visible:outline-accent">
 
       <div className="overflow-hidden transition ease-in-out rounded-full  hover:opacity-60">
-        <span className="text-sm">cosmicjs</span>
-        <span className="text-sm text-accent">.com</span>
+        <span className="text-2xl font-bold">rcaselles</span>
       </div>
 
     </Link>)

@@ -21,7 +21,7 @@ export async function getPreviewPostBySlug(slug) {
     return data.object
   } catch (error) {
     if (is404(error)) return
-    throw error
+    return []
   }
 }
 
@@ -38,10 +38,10 @@ export async function getAllPosts(preview, postType, postCount) {
       .sort('-created_at')
       .status(preview ? 'any' : 'published')
       .depth(1)
-    return data.objects
+    return data?.objects ?? []
   } catch (error) {
     if (is404(error)) return
-    throw error
+    return []
   }
 }
 
@@ -51,10 +51,10 @@ export async function getAllPostsWithSlug() {
       type: 'posts',
       props: 'title,slug,metadata,created_at',
     })
-    return data.objects
+    return data?.objects ?? []
   } catch (error) {
     if (is404(error)) return
-    throw error
+    return []
   }
 }
 
@@ -79,11 +79,11 @@ export async function getPostAndMorePosts(slug, preview) {
       .slice(0, 2)
 
     return {
-      post: data?.object,
+      post: data?.object ?? [],
       morePosts,
     }
   } catch (error) {
-    if (is404(error)) throw error
+    if (is404(error)) return []
   }
 }
 
@@ -97,7 +97,7 @@ export async function getAllCategories(category) {
     return data.objects
   } catch (error) {
     if (is404(error)) return
-    throw error
+    return []
   }
 }
 
@@ -112,7 +112,7 @@ export async function getPageBySlug(slug, props) {
     return data.object
   } catch (error) {
     if (is404(error)) return
-    throw error
+    return []
   }
 }
 
@@ -127,6 +127,6 @@ export async function getSiteSettings() {
     return data.object
   } catch (error) {
     if (is404(error)) return
-    throw error
+    return []
   }
 }

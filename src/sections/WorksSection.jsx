@@ -3,6 +3,10 @@ import PostList from '@/components/PostList'
 import { FlaskIcon } from '@/configs/icons'
 
 const WorksSection = ({ posts }) => {
+
+  if(!posts.length){
+    return null
+  }
   return (
     <section className="mt-24">
       <span className="flex items-center mb-8">
