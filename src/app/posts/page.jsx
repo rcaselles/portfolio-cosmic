@@ -82,4 +82,5 @@ const PostsPage = async () => {
   )
 }
 
-export const dynamic = 'force-dynamic'export default PostsPage
+export const dynamic = 'force-dynamic';
+export default PostsPage

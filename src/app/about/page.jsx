@@ -108,4 +108,6 @@ const AboutPage = async () => {
   )
 }
 
-export const dynamic = 'force-dynamic'export default AboutPage
+export const dynamic = 'force-dynamic';
+
+export default AboutPage
