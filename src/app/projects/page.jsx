@@ -82,5 +82,4 @@ const WorksPage = async () => {
   )
 }
 
-export const revalidate = 60
-export default WorksPage
+export const dynamic = 'force-dynamic'export default WorksPage

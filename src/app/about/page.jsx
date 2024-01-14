@@ -108,5 +108,4 @@ const AboutPage = async () => {
   )
 }
 
-export const revalidate = 60
-export default AboutPage
+export const dynamic = 'force-dynamic'export default AboutPage

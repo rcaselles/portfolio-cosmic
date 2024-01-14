@@ -96,5 +96,4 @@ const HomePage = async () => {
     </>
   )
 }
-export const revalidate = 60
-export default HomePage
+export const dynamic = 'force-dynamic'export default HomePage

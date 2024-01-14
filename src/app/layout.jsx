@@ -8,7 +8,6 @@ import { getSiteSettings } from '@/lib/cosmic'
 import getMetadata from 'helpers/getMetadata'
 
 const siteSettings = await getSiteSettings()
-const enableRobots = getMetadata(siteSettings?.metadata?.enable_robots, false)
 const siteUrl = getMetadata(siteSettings?.metadata?.site_url)
 
 export const metadata = {
@@ -24,13 +23,13 @@ export const metadata = {
     maximumScale: 1,
   },
   robots: {
-    index: enableRobots,
-    follow: enableRobots,
-    nocache: enableRobots,
+    index: true,
+    follow: true,
+    nocache: true,
     googleBot: {
-      index: enableRobots,
-      follow: enableRobots,
-      noimageindex: enableRobots,
+      index: true,
+      follow: true,
+      noimageindex: true,
       'max-video-preview': -1,
       'max-image-preview': 'large',
       'max-snippet': -1,
