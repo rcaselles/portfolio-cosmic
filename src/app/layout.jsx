@@ -5,6 +5,7 @@ import AlertPreview from '@/components/AlertPreview'
 import { draftMode } from 'next/headers'
 import { getSiteSettings } from '@/lib/cosmic'
 import getMetadata from 'helpers/getMetadata'
+import GoogleAnalytics from '@/components/GoogleAnalytics'
 
 const siteSettings = await getSiteSettings()
 const siteUrl = getMetadata(siteSettings?.metadata?.site_url)
@@ -46,6 +47,7 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
         />
+        <GoogleAnalytics gaId="G-QWQY4WLS09" />
       </head>
 
       <body>
