@@ -2,20 +2,20 @@ import { EmailIcon, GithubIcon, LinkedinIcon, PaperIcon } from '@/configs/icons'
 
 const Socials = ({ resume, email, github, linkedin }) => {
   return (
-    <div className="flex items-center">{
-      resume && 
-      <a
-        href={resume}
-        target="_blank"
-        rel="noreferrer"
-        className="flex items-center mr-4 text-fore-primary border-2 border-accent w-fit px-4 py-1 rounded cursor-pointer hover:text-accent transition-colors"
-      >
-        <span className="mr-2">
-          <PaperIcon />
-        </span>
-        Resume
-      </a>
-    }
+    <div className="flex items-center">
+      {resume && (
+        <a
+          href={resume}
+          target="_blank"
+          rel="noreferrer"
+          className="flex items-center mr-4 text-fore-primary border-2 border-accent w-fit px-4 py-1 rounded cursor-pointer hover:text-accent transition-colors"
+        >
+          <span className="mr-2">
+            <PaperIcon />
+          </span>
+          Resume
+        </a>
+      )}
       <span className="flex gap-x-5 ml-2">
         <a
           href={`mailto:${email}`}

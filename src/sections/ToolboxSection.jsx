@@ -12,7 +12,7 @@ const TechSection = () => {
         </div>
         <h4 className="text-xl text-accent font-semibold">My Toolbox</h4>
       </span>
-      <ul className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+      <ul className="grid grid-cols-2 sm:grid-cols-4 gap-6 p-2">
         {devIcons.map(icon => (
           <DevIcon name={icon.name} iconName={icon.iconName} key={icon.name} />
         ))}

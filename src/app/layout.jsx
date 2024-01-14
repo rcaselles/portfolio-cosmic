@@ -2,7 +2,6 @@ import '@/styles/globals.css'
 import Providers from './providers'
 import Header from '@/components/Header'
 import AlertPreview from '@/components/AlertPreview'
-import Footer from '@/components/Footer'
 import { draftMode } from 'next/headers'
 import { getSiteSettings } from '@/lib/cosmic'
 import getMetadata from 'helpers/getMetadata'
@@ -47,7 +46,6 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
         />
-        
       </head>
 
       <body>
@@ -57,7 +55,6 @@ export default function RootLayout({ children }) {
           <main className="flex flex-col min-h-screen container flex-grow  px-5 m-auto mt-16 md:px-12 lg:px-20">
             {children}
           </main>
-          <Footer />
         </Providers>
       </body>
     </html>
