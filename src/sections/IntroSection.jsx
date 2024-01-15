@@ -4,9 +4,11 @@ const IntroSection = ({ heading, subHeading, socials }) => {
   return (
     <section className="w-full flex flex-col-reverse md:flex-row justify-start">
       <div className="flex-1 flex flex-col gap-y-4">
-        <h1 className="text-3xl md:text-5xl font-bold max-w-2xl text-fore-primary relative w-[max-content] 
+        <h1
+          className="text-3xl md:text-5xl font-bold max-w-2xl text-fore-primary relative w-[max-content] 
                       before:absolute before:inset-0 before:animate-typewriter
-                      after:absolute after:inset-0 after:w-[0.125em] after:animate-caret">
+                      after:absolute after:inset-0 after:w-[0.125em] after:animate-caret"
+        >
           {heading || 'Developer Portfolio'}
         </h1>
         <h2 className="mb-4 max-w-lg">
@@ -17,11 +19,11 @@ const IntroSection = ({ heading, subHeading, socials }) => {
           email={socials?.metadata.email}
           github={socials?.metadata.github}
           linkedin={socials?.metadata.linkedin}
+          newsletter={socials?.metadata.newsletter}
         />
       </div>
-
     </section>
-  );
+  )
 }
 
 export default IntroSection

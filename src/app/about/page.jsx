@@ -100,6 +100,7 @@ const AboutPage = async () => {
               email={pageData?.metadata.socials.metadata.email}
               github={pageData?.metadata.socials.metadata.github}
               linkedin={pageData?.metadata.socials.metadata.linkedin}
+              newsletter={pageData?.metadata.socials.metadata.newsletter}
             />
           </div>
         </div>
@@ -108,6 +109,6 @@ const AboutPage = async () => {
   )
 }
 
-export const dynamic = 'force-dynamic';
+export const dynamic = 'force-dynamic'
 
 export default AboutPage

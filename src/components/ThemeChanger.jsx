@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 import { useTheme } from 'next-themes'
 import { SunnyOutline, MoonOutline } from 'react-ionicons'
 
-
 const ThemeChanger = ({ styles }) => {
   const [mounted, setMounted] = useState(false)
   const { resolvedTheme, setTheme } = useTheme()
@@ -22,17 +21,15 @@ const ThemeChanger = ({ styles }) => {
       }
       onClick={() => {
         setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
-        console.log("test")
       }}
       className={styles}
     >
       {resolvedTheme === 'dark' ? (
-
         <span className="block w-4 h-4 text-white rounded-full group-hover:-translate-y-1 transition-transform">
-          <SunnyOutline color={"white"} />
+          <SunnyOutline color={'white'} />
         </span>
       ) : (
-        <span className="block w-4 h-4 text-black rounded-full group-hover:-translate-y-1 transition-transform" >
+        <span className="block w-4 h-4 text-black rounded-full group-hover:-translate-y-1 transition-transform">
           <MoonOutline />
         </span>
       )}

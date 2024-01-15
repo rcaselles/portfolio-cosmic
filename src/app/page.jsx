@@ -10,6 +10,7 @@ import getMetadata from 'helpers/getMetadata'
 
 async function getData() {
   const { isEnabled } = draftMode()
+
   const [allPosts, allWorks, pageData] = await Promise.all([
     getAllPosts(isEnabled, 'posts', 3) || [],
     getAllPosts(isEnabled, 'works', 3) || [],
@@ -76,6 +77,7 @@ const HomePage = async () => {
   const allPosts = data?.allPosts ?? []
   const allWorks = data?.allWorks ?? []
   const pageData = data.pageData
+  console.log(pageData.metadata.socials)
 
   return (
     <>
@@ -87,7 +89,8 @@ const HomePage = async () => {
       <AboutMeSection bodyText={pageData?.metadata.about} />
       <ToolboxSection />
       <WorksSection posts={allWorks} />
-      <PostsSection posts={allPosts} />{/* 
+      <PostsSection posts={allPosts} />
+      {/* 
       <ContactSection
         heading={pageData?.metadata.contact_heading}
         bodyText={pageData?.metadata.contact_text}
@@ -96,5 +99,5 @@ const HomePage = async () => {
     </>
   )
 }
-export const dynamic = 'force-dynamic';
+export const dynamic = 'force-dynamic'
 export default HomePage
