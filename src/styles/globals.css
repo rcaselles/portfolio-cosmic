@@ -1,9 +1,4 @@
-/* Import the fonts from the local NPM package 'fontsource'. You can copy the import statements to use whichever font types you need. */
-@import '@fontsource/public-sans/300.css';
-@import '@fontsource/public-sans/400.css';
-@import '@fontsource/public-sans/400-italic.css';
-@import '@fontsource/public-sans/600.css';
-@import '@fontsource/public-sans/700.css';
+
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';

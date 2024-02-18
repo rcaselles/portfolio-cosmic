@@ -1,15 +1,10 @@
 'use client'
-import { useEffect, useState } from 'react'
 import { useTheme } from 'next-themes'
-import { SunnyOutline, MoonOutline } from 'react-ionicons'
+import { FaMoon, FaSun } from 'react-icons/fa'
 
-const ThemeChanger = ({ styles }) => {
-  const [mounted, setMounted] = useState(false)
+
+const ThemeChanger = () => {
   const { resolvedTheme, setTheme } = useTheme()
-
-  useEffect(() => setMounted(true), [])
-
-  if (!mounted) return null
 
   return (
     <button
@@ -22,15 +17,16 @@ const ThemeChanger = ({ styles }) => {
       onClick={() => {
         setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
       }}
-      className={styles}
+      className={"bg-gray-300 dark:bg-gray-500 p-2 rounded-full"}
     >
       {resolvedTheme === 'dark' ? (
-        <span className="block w-4 h-4 text-white rounded-full group-hover:-translate-y-1 transition-transform">
-          <SunnyOutline color={'white'} />
+
+        <span className="block text-white rounded-full group-hover:-translate-y-1 transition-transform">
+          <FaSun color={"white"} />
         </span>
       ) : (
-        <span className="block w-4 h-4 text-black rounded-full group-hover:-translate-y-1 transition-transform">
-          <MoonOutline />
+        <span className="block text-white rounded-full group-hover:-translate-y-1 transition-transform" >
+          <FaMoon  color={"black"} />
         </span>
       )}
     </button>

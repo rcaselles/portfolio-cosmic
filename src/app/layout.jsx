@@ -1,10 +1,10 @@
 import '@/styles/globals.css'
 import Providers from './providers'
-import Header from '@/components/Header'
-import AlertPreview from '@/components/AlertPreview'
+import Header from '@/components/Header/Header'
 import { draftMode } from 'next/headers'
 import { getSiteSettings } from '@/lib/cosmic'
 import getMetadata from 'helpers/getMetadata'
+import ScrollToTop from '@/components/ScrollToTop/ScrollToTop'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
 
 const siteSettings = await getSiteSettings()
@@ -53,10 +53,10 @@ export default function RootLayout({ children }) {
       <body>
         <Providers>
           <Header />
-          {isEnabled && <AlertPreview enabled={isEnabled} />}
           <main className="flex flex-col min-h-screen container flex-grow  px-5 m-auto mt-16 md:px-12 lg:px-20">
             {children}
           </main>
+          <ScrollToTop />
         </Providers>
       </body>
     </html>

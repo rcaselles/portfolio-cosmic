@@ -1,4 +1,4 @@
-import Date from './Date'
+import DateContainer from './DateContainer/DateContainer'
 import Link from 'next/link'
 import { ForwardArrowIcon } from '@/configs/icons'
 
@@ -38,10 +38,10 @@ const PostList = ({ allPosts, postType, home }) => {
               </p>
             </div>
             {home ? (
-              <Date
+              <DateContainer
                 dateString={post.created_at}
                 formatStyle="LLLL, yyyy"
-              ></Date>
+              ></DateContainer>
             ) : (
               <p className="flex items-center text-fore-subtle text-sm">
                 Read more

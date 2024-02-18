@@ -1,7 +1,6 @@
 import PostBody from '@/components/PostBody'
 import PostHeader from '@/components/PostHeader'
 import { getPostAndMorePosts, getPageBySlug } from '@/lib/cosmic'
-import AlertPreview from '@/components/AlertPreview'
 import { draftMode } from 'next/headers'
 import { notFound } from 'next/navigation'
 import getMetadata from 'helpers/getMetadata'
@@ -71,7 +70,6 @@ const SingleWork = async ({ params }) => {
   return (
     <>
       <article className="border-b border-back-subtle py-8 mb-8">
-        {post.status === 'draft' ? <AlertPreview preview={true} /> : undefined}
         <PostHeader post={post} />
         <PostBody content={post.metadata.content} />
       </article>

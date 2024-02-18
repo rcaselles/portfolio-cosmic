@@ -1,17 +1,16 @@
 import Link from 'next/link'
 import { ForwardArrowIcon } from '@/configs/icons'
-import { sanitize } from 'isomorphic-dompurify'
 
 const AboutMeSection = ({ bodyText }) => {
   return (
     <section className="mt-24">
-      <h3 className="text-2xl md:text-3xl mb-8 text-fore-primary border-b border-b-slate-200 dark:border-b-gray-600 w-fit">
+      <h3 className="text-2xl md:text-3xl mb-8">
         About Me
       </h3>
       <div
         className="text-fore-primary mb-8 space-y-4"
         dangerouslySetInnerHTML={{
-          __html: sanitize(bodyText),
+          __html: (bodyText),
         }}
       />
       <Link

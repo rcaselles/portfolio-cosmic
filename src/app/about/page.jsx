@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import { getPageBySlug } from '@/lib/cosmic'
 import Socials from '@/components/Socials'
-import { sanitize } from 'isomorphic-dompurify'
 import getMetadata from 'helpers/getMetadata'
 
 async function getData() {
@@ -92,11 +91,10 @@ const AboutPage = async () => {
             <div
               className="text-fore-primary"
               dangerouslySetInnerHTML={{
-                __html: sanitize(pageData?.content),
+                __html: (pageData?.content),
               }}
             />
             <Socials
-              resume={pageData?.metadata.socials.metadata.resume?.url}
               email={pageData?.metadata.socials.metadata.email}
               github={pageData?.metadata.socials.metadata.github}
               linkedin={pageData?.metadata.socials.metadata.linkedin}

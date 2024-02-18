@@ -10,7 +10,7 @@ const FilteredPosts = ({ posts, categories, postType }) => {
   )
   return (
     <>
-      <ul className="flex flex-wrap gap-y-2 sm:gap-y-0 gap-x-4 my-4">
+      <ul className="flex flex-wrap gap-y-2 sm:gap-y-0 gap-x-2 my-2">
         <li
           className={
             'All' === filterCategory
