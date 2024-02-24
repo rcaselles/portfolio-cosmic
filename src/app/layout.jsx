@@ -1,7 +1,6 @@
 import '@/styles/globals.css'
 import Providers from './providers'
 import Header from '@/components/Header/Header'
-import { draftMode } from 'next/headers'
 import { getSiteSettings } from '@/lib/cosmic'
 import getMetadata from 'helpers/getMetadata'
 import ScrollToTop from '@/components/ScrollToTop/ScrollToTop'
@@ -38,8 +37,6 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
-  const { isEnabled } = draftMode()
-
   return (
     <html lang="en">
       <head>

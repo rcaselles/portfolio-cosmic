@@ -1,7 +1,6 @@
 import PostBody from '@/components/PostBody'
 import PostHeader from '@/components/PostHeader'
 import { getPostAndMorePosts, getPageBySlug } from '@/lib/cosmic'
-import { draftMode } from 'next/headers'
 import { notFound } from 'next/navigation'
 import getMetadata from 'helpers/getMetadata'
 
@@ -58,8 +57,7 @@ export async function generateMetadata({ params }) {
 }
 
 const SingleWork = async ({ params }) => {
-  const { isEnabled } = draftMode()
-  const getData = await getPostAndMorePosts(params.slug, isEnabled)
+  const getData = await getPostAndMorePosts(params.slug, false)
 
   if (!getData) {
     return notFound()

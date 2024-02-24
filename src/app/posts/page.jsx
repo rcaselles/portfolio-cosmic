@@ -1,12 +1,10 @@
 import { getAllPosts, getAllCategories, getPageBySlug } from '@/lib/cosmic'
 import FilteredPosts from '@/components/FilteredPosts'
-import { draftMode } from 'next/headers'
 import getMetadata from 'helpers/getMetadata'
 
 async function getData() {
-  const { isEnabled } = draftMode()
   const [allPosts, allPostCategories] = await Promise.all([
-    getAllPosts(isEnabled, 'posts') || [],
+    getAllPosts(false, 'posts') || [],
     getAllCategories('post-categories') || [],
   ])
   return {
@@ -72,15 +70,16 @@ const PostsPage = async () => {
       <h1 className="text-2xl md:text-3xl text-fore-primary font-bold mb-12">
         Posts
       </h1>
-      {!allPosts.length && <span>There are no posts</span> || 
-      <FilteredPosts
-        posts={allPosts}
-        categories={allPostCategories}
-        postType={'posts'}
-        />}
+      {(!allPosts.length && <span>There are no posts</span>) || (
+        <FilteredPosts
+          posts={allPosts}
+          categories={allPostCategories}
+          postType={'posts'}
+        />
+      )}
     </>
   )
 }
 
-export const dynamic = 'force-dynamic';
+export const dynamic = 'force-dynamic'
 export default PostsPage
