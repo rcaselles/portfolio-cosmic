@@ -9,9 +9,10 @@ const IntroSection = ({ heading, subHeading, socials }) => {
         </h1>
         <h2 className="mb-4 max-w-lg">{subHeading || ''}</h2>
         <Socials
-          email={socials?.metadata.email}
-          github={socials?.metadata.github}
-          linkedin={socials?.metadata.linkedin}
+          email={socials?.metadata?.email}
+          github={socials?.metadata?.github}
+          linkedin={socials?.metadata?.linkedin}
+          newsletter={socials?.metadata?.newsletter}
         />
       </div>
     </section>

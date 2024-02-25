@@ -15,7 +15,7 @@ const Header = () => {
   const linkClass = path => {
     return `block py-2 px-3 md:p-0 rounded md:bg-transparent hover:font-bold hover:tracking-normal ${
       currentRoute === path
-        ? 'font-bold bg-gray-300 dark:text-black'
+        ? 'font-bold bg-gray-300 sm:dark:text-black md:dark:text-white'
         : 'text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-700 md:dark:hover:text-gray-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700'
     }`
   }
@@ -24,7 +24,7 @@ const Header = () => {
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a
-          href="https://rcaselles.com/"
+          href="https://www.rcaselles.com/"
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">

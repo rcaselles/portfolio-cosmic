@@ -1,6 +1,6 @@
 import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa'
 
-const Socials = ({ email, github, linkedin }) => {
+const Socials = ({ email, github, linkedin, newsletter }) => {
   return (
     <div className="flex items-center">
       <span className="flex gap-x-5 ml-2">

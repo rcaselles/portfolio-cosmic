@@ -1,11 +1,8 @@
 const { createBucketClient } = require('@cosmicjs/sdk')
 
-const BUCKET_SLUG = process.env.COSMIC_BUCKET_SLUG
-const READ_KEY = process.env.COSMIC_READ_KEY
-
 const cosmic = createBucketClient({
-  bucketSlug: BUCKET_SLUG,
-  readKey: READ_KEY,
+  bucketSlug: process.env.COSMIC_BUCKET_SLUG,
+  readKey: process.env.COSMIC_READ_KEY,
 })
 
 const is404 = error => /not found/i.test(error.message)
