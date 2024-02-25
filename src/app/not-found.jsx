@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { HomeIcon } from '@/configs/icons'
+import { FaHome } from 'react-icons/fa'
 
 export default function NotFound() {
   return (
@@ -9,7 +9,7 @@ export default function NotFound() {
         <h1 className="text-3xl mb-6">Page Not Found </h1>
         <Link href="/" className="flex items-center text-accent">
           <span className="mr-2">
-            <HomeIcon />
+            <FaHome />
           </span>
           Return Home
         </Link>

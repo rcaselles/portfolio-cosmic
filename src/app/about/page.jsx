@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import { getPageBySlug } from '@/lib/cosmic'
 import Socials from '@/components/Socials'
-import getMetadata from 'helpers/getMetadata'
 
 async function getData() {
   const pageData = (await getPageBySlug('about-page', 'content,metadata')) || []
@@ -17,14 +16,14 @@ export async function generateMetadata() {
     getPageBySlug('site-settings', 'metadata'),
   ])
 
-  const title = getMetadata(pageData?.metadata?.meta_title)
-  const description = getMetadata(pageData?.metadata?.meta_description)
-  const image = getMetadata(
-    pageData?.metadata?.meta_image?.imgix_url,
-    siteSettings?.metadata?.default_meta_image?.imgix_url ?? ''
-  )
-  const url = getMetadata(`${siteSettings?.metadata?.site_url}/about`)
-  const twitterHandle = getMetadata(socialData?.metadata?.twitter)
+  const title = pageData?.metadata?.meta_title ?? ''
+  const description = pageData?.metadata?.meta_description
+  const image =
+    pageData?.metadata?.meta_image?.imgix_url ??
+    siteSettings?.metadata?.default_meta_image?.imgix_url ??
+    ''
+  const url = `${siteSettings?.metadata?.site_url ?? ''}/about`
+  const twitterHandle = socialData?.metadata?.twitter ?? ''
 
   return {
     title: title,
@@ -91,7 +90,7 @@ const AboutPage = async () => {
             <div
               className="text-fore-primary"
               dangerouslySetInnerHTML={{
-                __html: (pageData?.content),
+                __html: pageData?.content,
               }}
             />
             <Socials

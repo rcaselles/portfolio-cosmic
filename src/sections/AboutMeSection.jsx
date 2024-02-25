@@ -1,16 +1,14 @@
 import Link from 'next/link'
-import { ForwardArrowIcon } from '@/configs/icons'
+import { FaArrowRight } from 'react-icons/fa'
 
 const AboutMeSection = ({ bodyText }) => {
   return (
     <section className="mt-24">
-      <h3 className="text-2xl md:text-3xl mb-8">
-        About Me
-      </h3>
+      <h3 className="text-3xl mb-5">About Me</h3>
       <div
         className="text-fore-primary mb-8 space-y-4"
         dangerouslySetInnerHTML={{
-          __html: (bodyText),
+          __html: bodyText,
         }}
       />
       <Link
@@ -18,7 +16,7 @@ const AboutMeSection = ({ bodyText }) => {
         className="flex items-center text-accent underline underline-offset-2 cursor-pointer hover:opacity-70 transition hover:translate-x-1 w-fit"
       >
         <span className="mr-1">
-          <ForwardArrowIcon />
+          <FaArrowRight />
         </span>
         Learn more
       </Link>

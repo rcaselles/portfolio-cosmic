@@ -2,7 +2,6 @@ import PostBody from '@/components/PostBody'
 import PostHeader from '@/components/PostHeader'
 import { getPostAndMorePosts, getPageBySlug } from '@/lib/cosmic'
 import { notFound } from 'next/navigation'
-import getMetadata from 'helpers/getMetadata'
 
 export async function generateMetadata({ params }) {
   const [getData, socialData, siteSettings] = await Promise.all([
@@ -12,16 +11,16 @@ export async function generateMetadata({ params }) {
   ])
   const currentPage = 'works'
 
-  const title = getMetadata(getData?.post?.title)
-  const description = getMetadata(getData?.post?.metadata?.excerpt)
-  const image = getMetadata(
-    getData?.post?.metadata?.cover_image?.imgix_url,
-    siteSettings?.metadata?.default_meta_image?.imgix_url ?? ''
-  )
-  const url = getMetadata(
-    `${siteSettings?.metadata.site_url}/${currentPage}/${params.slug}`
-  )
-  const twitterHandle = getMetadata(socialData?.metadata?.twitter)
+  const title = getData?.post?.title ?? ''
+  const description = getData?.post?.metadata?.excerpt ?? ''
+  const image =
+    getData?.post?.metadata?.cover_image?.imgix_url ??
+    siteSettings?.metadata?.default_meta_image?.imgix_url ??
+    ''
+  const url = `${siteSettings?.metadata?.site_url ?? ''}/${currentPage ?? ''}/${
+    params?.slug ?? ''
+  }`
+  const twitterHandle = socialData?.metadata?.twitter ?? ''
 
   return {
     title: title,
@@ -57,7 +56,7 @@ export async function generateMetadata({ params }) {
 }
 
 const SingleWork = async ({ params }) => {
-  const getData = await getPostAndMorePosts(params.slug, false)
+  const getData = await getPostAndMorePosts(params.slug)
 
   if (!getData) {
     return notFound()

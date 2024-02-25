@@ -1,6 +1,6 @@
 import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa'
 
-const Socials = ({email, github, linkedin }) => {
+const Socials = ({ email, github, linkedin }) => {
   return (
     <div className="flex items-center">
       <span className="flex gap-x-5 ml-2">
@@ -10,7 +10,7 @@ const Socials = ({email, github, linkedin }) => {
           aria-label="Email"
           title="Email"
         >
-          <FaEnvelope className='w-5 h-auto'/>
+          <FaEnvelope className="w-5 h-auto hover:text-gray-500" />
         </a>
         <a
           href={`https://github.com/${github}`}
@@ -18,7 +18,7 @@ const Socials = ({email, github, linkedin }) => {
           aria-label="Github"
           title="Github"
         >
-          <FaGithub className='w-5 h-auto' />
+          <FaGithub className="w-5 h-auto hover:text-gray-500" />
         </a>
         <a
           href={`https://www.linkedin.com/in/${linkedin}`}
@@ -26,9 +26,8 @@ const Socials = ({email, github, linkedin }) => {
           aria-label="Linkedin"
           title="Linkedin"
         >
-          <FaLinkedin className='w-5 h-auto'/>
+          <FaLinkedin className="w-5 h-auto hover:text-gray-500" />
         </a>
-        
       </span>
     </div>
   )

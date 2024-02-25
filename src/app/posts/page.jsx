@@ -1,10 +1,9 @@
 import { getAllPosts, getAllCategories, getPageBySlug } from '@/lib/cosmic'
 import FilteredPosts from '@/components/FilteredPosts'
-import getMetadata from 'helpers/getMetadata'
 
 async function getData() {
   const [allPosts, allPostCategories] = await Promise.all([
-    getAllPosts(false, 'posts') || [],
+    getAllPosts('posts') || [],
     getAllCategories('post-categories') || [],
   ])
   return {
@@ -21,11 +20,9 @@ export async function generateMetadata() {
 
   const title = 'Posts | Developer Portfolio'
   const description = 'The blog posts of this developer'
-  const image = getMetadata(
-    siteSettings?.metadata?.default_meta_image?.imgix_url
-  )
-  const url = getMetadata(`${siteSettings?.metadata.site_url}/posts`)
-  const twitterHandle = getMetadata(socialData?.metadata?.twitter)
+  const image = siteSettings?.metadata?.default_meta_image?.imgix_url ?? ''
+  const url = `${siteSettings?.metadata?.site_url ?? ''}/posts`
+  const twitterHandle = socialData?.metadata?.twitter ?? ''
 
   return {
     title: title,

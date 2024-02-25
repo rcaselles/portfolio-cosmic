@@ -1,13 +1,11 @@
 import { getAllPosts, getPageBySlug } from '@/lib/cosmic'
 import IntroSection from '@/sections/IntroSection'
 import AboutMeSection from '@/sections/AboutMeSection'
-import ToolboxSection from '@/sections/ToolboxSection'
-import getMetadata from 'helpers/getMetadata'
 
 async function getData() {
   const [allPosts, allWorks, pageData] = await Promise.all([
-    getAllPosts(false, 'posts', 3) || [],
-    getAllPosts(false, 'works', 3) || [],
+    getAllPosts('posts', 3) || [],
+    getAllPosts('works', 3) || [],
     getPageBySlug('home-page', 'metadata'),
   ])
   return {
@@ -24,14 +22,14 @@ export async function generateMetadata() {
     getPageBySlug('site-settings', 'metadata'),
   ])
 
-  const title = getMetadata(pageData?.metadata?.meta_title)
-  const description = getMetadata(pageData?.metadata?.meta_description)
-  const image = getMetadata(
-    pageData?.metadata?.meta_image?.imgix_url,
-    siteSettings?.metadata?.default_meta_image?.imgix_url ?? ''
-  )
-  const url = getMetadata(siteSettings?.metadata?.site_url)
-  const twitterHandle = getMetadata(socialData?.metadata?.twitter)
+  const title = pageData?.metadata?.meta_title ?? ''
+  const description = pageData?.metadata?.meta_description ?? ''
+  const image =
+    pageData?.metadata?.meta_image?.imgix_url ??
+    siteSettings?.metadata?.default_meta_image?.imgix_url ??
+    ''
+  const url = siteSettings?.metadata?.site_url ?? ''
+  const twitterHandle = socialData?.metadata?.twitter ?? ''
 
   return {
     title: title,
@@ -68,7 +66,6 @@ export async function generateMetadata() {
 
 const HomePage = async () => {
   const data = await getData()
-  const allWorks = data?.allWorks ?? []
   const pageData = data?.pageData ?? {}
 
   return (

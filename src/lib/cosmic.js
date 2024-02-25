@@ -10,22 +10,7 @@ const cosmic = createBucketClient({
 
 const is404 = error => /not found/i.test(error.message)
 
-export async function getPreviewPostBySlug(slug) {
-  try {
-    const data = await cosmic.objects
-      .findOne({
-        slug: slug,
-      })
-      .props('title,slug,metadata')
-      .status('any')
-    return data.object
-  } catch (error) {
-    if (is404(error)) return
-    return []
-  }
-}
-
-export async function getAllPosts(preview, postType, postCount) {
+export async function getAllPosts(postType, postCount) {
   try {
     const data = await cosmic.objects
       .find({
@@ -36,7 +21,7 @@ export async function getAllPosts(preview, postType, postCount) {
       )
       .limit(postCount)
       .sort('-created_at')
-      .status(preview ? 'any' : 'published')
+      .status('published')
       .depth(1)
     return data?.objects ?? []
   } catch (error) {
@@ -58,21 +43,22 @@ export async function getAllPostsWithSlug() {
   }
 }
 
-export async function getPostAndMorePosts(slug, preview) {
+export async function getPostAndMorePosts(slug) {
+  console.log(slug)
   try {
     const data = await cosmic.objects
       .findOne({
         slug: slug,
       })
       .props('slug,title,metadata,created_at,status')
-      .status(preview ? 'any' : 'published')
+      .status('published')
 
     const moreObjects = await cosmic.objects
       .find({
         type: 'posts',
       })
       .props('slug,title,metadata,created_at')
-      .status(preview ? 'any' : 'published')
+      .status('published')
 
     const morePosts = moreObjects.objects
       ?.filter(({ slug: object_slug }) => object_slug !== slug)

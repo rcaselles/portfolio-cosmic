@@ -2,12 +2,11 @@ import '@/styles/globals.css'
 import Providers from './providers'
 import Header from '@/components/Header/Header'
 import { getSiteSettings } from '@/lib/cosmic'
-import getMetadata from 'helpers/getMetadata'
 import ScrollToTop from '@/components/ScrollToTop/ScrollToTop'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
 
 const siteSettings = await getSiteSettings()
-const siteUrl = getMetadata(siteSettings?.metadata?.site_url)
+const siteUrl = siteSettings?.metadata?.site_url ?? ''
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
@@ -15,11 +14,6 @@ export const metadata = {
     icon: '/favicon/icon.ico',
     shortcut: '/favicon/shortcut-icon.png',
     apple: '/favicon/apple-touch-icon.png',
-  },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
   },
   robots: {
     index: true,
@@ -36,14 +30,16 @@ export const metadata = {
   },
 }
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+}
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
-        />
         <GoogleAnalytics gaId="G-QWQY4WLS09" />
       </head>
 
