@@ -30,19 +30,6 @@ export async function getAllPosts(postType, postCount) {
   }
 }
 
-export async function getAllPostsWithSlug() {
-  try {
-    const data = await cosmic.objects.find({
-      type: 'posts',
-      props: 'title,slug,metadata,created_at',
-    })
-    return data?.objects ?? []
-  } catch (error) {
-    if (is404(error)) return
-    return []
-  }
-}
-
 export async function getPostAndMorePosts(slug) {
   try {
     const data = await cosmic.objects
