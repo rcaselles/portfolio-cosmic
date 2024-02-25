@@ -18,8 +18,9 @@ export async function generateMetadata() {
     getPageBySlug('site-settings', 'metadata'),
   ])
 
-  const title = 'Works | Developer Portfolio'
-  const description = 'The projects of this developer'
+  const title = 'Projects | rcaselles | JavaScript, React, Node, Development'
+  const description =
+    'Projects about fullstack development with Javascript by rcaselles'
   const image = siteSettings?.metadata?.default_meta_image?.imgix_url ?? ''
   const url = `${siteSettings?.metadata?.site_url ?? ''}/works`
   const twitterHandle = socialData?.metadata?.twitter ?? ''

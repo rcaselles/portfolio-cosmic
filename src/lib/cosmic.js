@@ -44,7 +44,6 @@ export async function getAllPostsWithSlug() {
 }
 
 export async function getPostAndMorePosts(slug) {
-  console.log(slug)
   try {
     const data = await cosmic.objects
       .findOne({

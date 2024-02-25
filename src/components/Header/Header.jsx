@@ -15,7 +15,7 @@ const Header = () => {
   const linkClass = path => {
     return `block py-2 px-3 md:p-0 rounded md:bg-transparent hover:font-bold hover:tracking-normal ${
       currentRoute === path
-        ? 'font-bold bg-gray-300 md:text-gray-900 md:dark:text-gray-500'
+        ? 'font-bold bg-gray-300 dark:text-black'
         : 'text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-700 md:dark:hover:text-gray-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700'
     }`
   }
