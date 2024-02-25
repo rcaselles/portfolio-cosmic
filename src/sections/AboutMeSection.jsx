@@ -4,7 +4,7 @@ import { FaArrowRight } from 'react-icons/fa'
 const AboutMeSection = ({ bodyText }) => {
   return (
     <section className="mt-24">
-      <h3 className="text-3xl mb-5">About Me</h3>
+      <h3 className="text-2xl font-bold mb-6">About Me</h3>
       <div
         className="text-fore-primary mb-8 space-y-4"
         dangerouslySetInnerHTML={{
@@ -13,7 +13,7 @@ const AboutMeSection = ({ bodyText }) => {
       />
       <Link
         href="/about"
-        className="flex items-center text-accent underline underline-offset-2 cursor-pointer hover:opacity-70 transition hover:translate-x-1 w-fit"
+        className="font-bold flex items-center text-accent hover:underline hover:underline-offset-2 cursor-pointer hover:opacity-70 transition hover:translate-x-1 w-fit"
       >
         <span className="mr-1">
           <FaArrowRight />
