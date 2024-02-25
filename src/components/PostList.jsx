@@ -28,11 +28,6 @@ const PostList = ({ allPosts, postType, home }) => {
               <div className="max-w-lg">
                 <h3 className="text-xl font-bold mb-1 group-hover:text-accent transition-colors">
                   {post.title}{' '}
-                  {post.status === 'draft' && home && (
-                    <span className="text-fore-subtle ml-2">
-                      &#40;Draft&#41;
-                    </span>
-                  )}
                 </h3>
                 <p className="text-fore-subtle mb-3 lg:mb-0 lg:pr-6">
                   {post?.metadata?.excerpt}
@@ -42,18 +37,13 @@ const PostList = ({ allPosts, postType, home }) => {
                 <DateContainer
                   dateString={post.created_at}
                   formatStyle="LLLL, yyyy"
-                ></DateContainer>
+                />
               ) : (
                 <p className="flex items-center text-fore-subtle text-sm">
                   Read more
                   <span className="group hidden group-hover:block ml-2">
                     <FaArrowRight />
                   </span>
-                  {post.status === 'draft' && (
-                    <span className="absolute right-1 top-1 bg-back-subtle px-3 py-1 rounded text-accent">
-                      Draft
-                    </span>
-                  )}
                 </p>
               )}
             </Link>
