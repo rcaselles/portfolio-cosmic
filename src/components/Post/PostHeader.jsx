@@ -1,5 +1,5 @@
-import DateContainer from './DateContainer/DateContainer'
-import CoverImage from './CoverImage'
+import DateContainer from '../DateContainer/DateContainer'
+import CoverImage from '../CoverImage'
 import PostTitle from './PostTitle'
 import { FaClock } from 'react-icons/fa'
 
@@ -14,8 +14,8 @@ const PostHeader = ({ post }) => {
             <DateContainer
               dateString={post.created_at}
               formatStyle="LLLL dd, yyyy"
-            />{' '}
-            |{' '}
+            />
+            |
             <span className="flex items-center justify-center gap-2">
               <FaClock />
               {post.metadata.time_to_read} to read

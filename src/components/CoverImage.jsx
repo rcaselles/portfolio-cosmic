@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image'
 
 const CoverImage = ({ title, url }) => {
   return (
@@ -13,9 +13,10 @@ const CoverImage = ({ title, url }) => {
         fill
         sizes="100vw"
         style={{
-          objectFit: "cover"
-        }} />
+          objectFit: 'cover',
+        }}
+      />
     </div>
-  );
+  )
 }
 export default CoverImage

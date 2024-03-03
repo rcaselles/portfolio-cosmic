@@ -1,6 +1,6 @@
-import markdownStyles from './markdown-styles.module.css'
+import markdownStyles from '../markdown-styles.module.css'
 import ReactMarkdown from 'react-markdown'
-import Image from "next/image";
+import Image from 'next/image'
 
 const components = {
   a: a => {
@@ -20,18 +20,19 @@ const components = {
         quality={50}
         sizes="100vw"
         style={{
-          width: "100%",
-          height: "auto",
-          objectFit: "contain",
-          objectPosition: "center"
-        }} />
-    );
+          width: '100%',
+          height: 'auto',
+          objectFit: 'contain',
+          objectPosition: 'center',
+        }}
+      />
+    )
   },
 }
 
 const PostBody = ({ content }) => {
   return (
-    <div className="max-w-2xl mx-auto">
+    <div className="mx-auto">
       <ReactMarkdown
         className={markdownStyles['markdown']}
         components={components}

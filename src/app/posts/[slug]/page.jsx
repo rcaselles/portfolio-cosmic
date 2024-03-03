@@ -1,5 +1,5 @@
-import PostBody from '@/components/PostBody'
-import PostHeader from '@/components/PostHeader'
+import PostBody from '@/components/Post/PostBody'
+import PostHeader from '@/components/Post/PostHeader'
 import { getPostAndMorePosts, getPageBySlug } from '@/lib/cosmic'
 import { notFound } from 'next/navigation'
 
