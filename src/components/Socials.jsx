@@ -1,7 +1,9 @@
 import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa'
+import NewsletterContainer from './Newsletter/NewsletterContainer'
 
 const Socials = ({ email, github, linkedin, newsletter }) => {
   return (
+    <>
     <div className="flex items-center">
       <span className="flex gap-x-5 ml-2">
         <a
@@ -29,7 +31,11 @@ const Socials = ({ email, github, linkedin, newsletter }) => {
           <FaLinkedin className="w-5 h-auto hover:text-gray-500" />
         </a>
       </span>
+
     </div>
+    <NewsletterContainer newsletter={newsletter}/>
+    </>
+
   )
 }
 export default Socials

@@ -6,7 +6,7 @@ import ScrollToTop from '@/components/ScrollToTop/ScrollToTop'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
 
 const siteSettings = await getSiteSettings()
-const siteUrl = siteSettings?.metadata?.site_url ?? ''
+const siteUrl = (siteSettings?.metadata?.site_url) ?? "";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
@@ -30,12 +30,6 @@ export const metadata = {
   },
 }
 
-export const viewport = {
-  width: 'device-width',
-  initialScale: 1,
-  maximumScale: 1,
-}
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -46,7 +40,7 @@ export default function RootLayout({ children }) {
       <body>
         <Providers>
           <Header />
-          <main className="flex flex-col min-h-screen container flex-grow  px-5 m-auto mt-16 md:px-12 lg:px-20">
+          <main className="flex flex-col min-h-screen container flex-grow  px-20 m-auto mt-16 md:px-20 lg:px-20">
             {children}
           </main>
           <ScrollToTop />

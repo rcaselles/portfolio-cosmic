@@ -16,14 +16,14 @@ export async function generateMetadata() {
     getPageBySlug('site-settings', 'metadata'),
   ])
 
-  const title = pageData?.metadata?.meta_title ?? ''
-  const description = pageData?.metadata?.meta_description
-  const image =
-    pageData?.metadata?.meta_image?.imgix_url ??
-    siteSettings?.metadata?.default_meta_image?.imgix_url ??
-    ''
-  const url = `${siteSettings?.metadata?.site_url ?? ''}/about`
-  const twitterHandle = socialData?.metadata?.twitter ?? ''
+  const title = (pageData?.metadata?.meta_title) ?? ""
+  const description = (pageData?.metadata?.meta_description) ?? ""
+  const image = (
+    pageData?.metadata?.meta_image?.imgix_url ?? 
+    siteSettings?.metadata?.default_meta_image?.imgix_url ?? ''
+  )
+  const url = (`${siteSettings?.metadata?.site_url ?? ""}/about`)
+  const twitterHandle = (socialData?.metadata?.twitter) ?? ""
 
   return {
     title: title,
@@ -90,7 +90,7 @@ const AboutPage = async () => {
             <div
               className="text-fore-primary"
               dangerouslySetInnerHTML={{
-                __html: pageData?.content,
+                __html: (pageData?.content),
               }}
             />
             <Socials
@@ -105,5 +105,7 @@ const AboutPage = async () => {
     </>
   )
 }
+
+export const dynamic = 'force-dynamic'
 
 export default AboutPage

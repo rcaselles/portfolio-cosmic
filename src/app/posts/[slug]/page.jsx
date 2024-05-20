@@ -12,6 +12,7 @@ export async function generateMetadata({ params }) {
 
   const currentPage = 'posts'
 
+<<<<<<< Updated upstream
   const title = getData?.post?.title ?? ''
   const description = getData?.post?.metadata?.excerpt ?? ''
   const image =
@@ -22,6 +23,18 @@ export async function generateMetadata({ params }) {
     params?.slug ?? ''
   }`
   const twitterHandle = socialData?.metadata?.twitter ?? ''
+=======
+  const title = (getData?.post?.title) ?? ""
+  const description = (getData?.post?.metadata?.excerpt) ?? ""
+  const image = (
+    getData?.post?.metadata?.cover_image?.imgix_url ?? 
+    siteSettings?.metadata?.default_meta_image?.imgix_url ?? ''
+  )
+  const url = (
+    `${siteSettings?.metadata.site_url ?? ""}/${currentPage}/${params.slug ?? ""}`
+  )
+  const twitterHandle = (socialData?.metadata?.twitter) ?? ""
+>>>>>>> Stashed changes
 
   return {
     title: title,
@@ -57,7 +70,11 @@ export async function generateMetadata({ params }) {
 }
 
 const SinglePost = async ({ params }) => {
+<<<<<<< Updated upstream
   const getData = await getPostAndMorePosts(params.slug, false)
+=======
+  const getData = await getPostAndMorePosts(params.slug)
+>>>>>>> Stashed changes
 
   if (!getData) {
     return notFound()
